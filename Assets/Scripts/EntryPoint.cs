@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EntryPoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private PlayerView _playerView;
+    [SerializeField]
+    private SimpleTouchController _touchController;
 
-    // Update is called once per frame
-    void Update()
+    private PlayerController _playerController;
+
+    private void Start()
     {
-        
+        _playerController = new PlayerController(_playerView, _touchController);
     }
 }

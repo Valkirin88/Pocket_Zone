@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController 
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private PlayerView _playerView;
+    private SimpleTouchController _touchController;
 
-    // Update is called once per frame
-    void Update()
+    public PlayerController(PlayerView playerView, SimpleTouchController touchController)
     {
-        
+        _playerView = playerView;
+        _touchController = touchController;
+        _touchController.TouchEvent += _playerView.SetDirection;
+        _touchController.TouchStateEvent += _playerView.MoveEnable;
     }
+    
+
 }
