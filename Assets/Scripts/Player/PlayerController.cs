@@ -14,6 +14,7 @@ public class PlayerController : IDisposable
         _canvasView = canvasView;
         _touchController.TouchEvent += _playerView.SetDirection;
         _touchController.TouchStateEvent += _playerView.MoveEnable;
+        _canvasView.OnShoot += _playerView.Shoot;
     }
 
     public void Dispose()

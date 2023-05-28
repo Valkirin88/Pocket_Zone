@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerView: {fileID: 948382056}
-  _canvasView: {fileID: 0}
+  _canvasView: {fileID: 725116737}
   _touchController: {fileID: 168263696}
 --- !u!4 &229705635
 Transform:
@@ -379,8 +379,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 300384699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.038, y: -0.098, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.045, y: -0.14, z: -1.3181e-10}
+  m_LocalScale: {x: 1.0343829, y: 0.6356606, z: 1.0343829}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 948382055}
@@ -770,6 +770,7 @@ GameObject:
   - component: {fileID: 725116735}
   - component: {fileID: 725116734}
   - component: {fileID: 725116733}
+  - component: {fileID: 725116737}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -860,6 +861,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &725116737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725116732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b311235cc82f3904a9da9e4cf475e227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootButton: {fileID: 1583649951}
 --- !u!1 &863417569
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,6 +972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d85b6dfbfca311148a15fd292a1b0c1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gunTransform: {fileID: 2005598527}
+  _bullet: {fileID: 2538475801222946957, guid: 3a9c1cbd8971ecf4ba9a9745296e2873, type: 3}
   _speed: 3
 --- !u!70 &948382057
 CapsuleCollider2D:
@@ -3036,7 +3052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3061,6 +3077,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583649949}
   m_CullTransparentMesh: 1
+--- !u!1 &2005598526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005598527}
+  m_Layer: 6
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2005598527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005598526}
+  m_LocalRotation: {x: 0.06933553, y: 0.005589901, z: -0.6014569, w: 0.79587126}
+  m_LocalPosition: {x: -0.0063606272, y: -0.058411065, z: -0.014785969}
+  m_LocalScale: {x: 0.73879313, y: 0.78678304, z: 1.5986671}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2032856138}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032856137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3085,14 +3132,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2032856137}
-  m_LocalRotation: {x: -0.06500786, y: -0.024751566, z: 0.35496613, w: 0.93228775}
-  m_LocalPosition: {x: 0.116, y: 0.092, z: 0.001}
+  m_LocalRotation: {x: -0.06933553, y: -0.005589901, z: 0.6014569, w: 0.79587126}
+  m_LocalPosition: {x: 0.146, y: 0.127, z: -0.001}
   m_LocalScale: {x: 1.2712395, y: 1.3673421, z: 0.61149615}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2005598527}
   m_Father: {fileID: 948382055}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: -5.949, y: -5.325, z: 41.965}
+  m_LocalEulerAnglesHint: {x: -5.949, y: -5.325, z: 74.435}
 --- !u!212 &2032856139
 SpriteRenderer:
   m_ObjectHideFlags: 0
