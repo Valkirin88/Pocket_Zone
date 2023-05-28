@@ -23,7 +23,8 @@ public class CanvasView : MonoBehaviour
 
     public void AddBonus(GameObject bonusObject)
     {
+
         Instantiate(bonusObject, _inventoryObject.transform);
-        bonusObject.transform.localScale = new Vector3(5,5,0);
+      
     }
 }
