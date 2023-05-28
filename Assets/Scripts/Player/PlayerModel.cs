@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerModel : MonoBehaviour
+public class PlayerModel 
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private Dictionary<Bonus, int> _bonusCollection;
+
+    public PlayerModel()
     {
-        
+        _bonusCollection = new Dictionary<Bonus, int>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CollectBonus(Bonus bonus)
     {
-        
+        if(_bonusCollection.ContainsKey(bonus))
+            _bonusCollection[bonus]++;
     }
 }

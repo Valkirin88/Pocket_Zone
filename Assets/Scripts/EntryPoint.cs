@@ -9,12 +9,19 @@ public class EntryPoint : MonoBehaviour
     [SerializeField]
     private SimpleTouchController _touchController;
 
+    private PlayerModel _playerModel;
     private PlayerController _playerController;
 
     private void Start()
     {
-        _playerController = new PlayerController(_playerView, _touchController, _canvasView);
+        _playerModel = new PlayerModel();
+        _playerController = new PlayerController(_playerModel, _playerView, _touchController, _canvasView);
 
+    }
+
+    private void Update()
+    {
+        _playerController.Update();
     }
 
     private void OnDestroy()
