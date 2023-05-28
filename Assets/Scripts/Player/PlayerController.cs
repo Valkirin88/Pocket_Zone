@@ -28,7 +28,9 @@ public class PlayerController : IDisposable
 
     public void Dispose()
     {
+        _view.OnBonusCollect -= _model.CollectBonus;
         _touchController.TouchEvent -= _view.SetDirection;
         _touchController.TouchStateEvent -= _view.MoveEnable;
+        _canvasView.OnShoot -= _view.Shoot;
     }
 }

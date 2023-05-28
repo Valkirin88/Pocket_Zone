@@ -9,4 +9,6 @@ public class BonusData : ScriptableObject
 
     [SerializeField]
     private GameObject _item;
+
+    public GameObject Item => _item; 
 }

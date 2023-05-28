@@ -11,12 +11,13 @@ public class EntryPoint : MonoBehaviour
 
     private PlayerModel _playerModel;
     private PlayerController _playerController;
+    private CanvasController _canvasController;
 
     private void Start()
     {
         _playerModel = new PlayerModel();
         _playerController = new PlayerController(_playerModel, _playerView, _touchController, _canvasView);
-
+        _canvasController = new CanvasController(_canvasView, _playerModel);
     }
 
     private void Update()

@@ -4,4 +4,6 @@ public class Bonus : MonoBehaviour
 {
     [SerializeField]
     private BonusData _bonusData;
+
+    public BonusData BonusData  => _bonusData; 
 }

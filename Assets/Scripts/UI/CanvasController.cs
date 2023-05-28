@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class CanvasController : MonoBehaviour
+public class CanvasController 
 {
-    // Start is called before the first frame update
-    void Start()
+    private CanvasView _canvasView;
+    private PlayerModel _playerModel;
+
+    public CanvasController(CanvasView canvasView, PlayerModel playerModel)
     {
-        
+        _canvasView = canvasView;
+        _playerModel = playerModel;
+        _playerModel.OnBonusCollect += AddBonus;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void AddBonus(Bonus bonus)
     {
-        
+        _canvasView.AddBonus(bonus.BonusData.Item);
     }
 }
+ 

@@ -54,6 +54,4 @@ public class PlayerView : MonoBehaviour
         Instantiate(_bullet, _gunTransform.position, Quaternion.identity);
         _bullet.GetComponent<Bullet>().Direction = _direction;
     }
-
- 
 }
