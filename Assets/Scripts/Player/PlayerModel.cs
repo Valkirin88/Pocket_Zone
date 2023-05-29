@@ -9,6 +9,8 @@ public class PlayerModel
 
     private Dictionary<Bonus, int> _bonusCollection;
 
+    public Dictionary<Bonus, int> BonusCollection => _bonusCollection; 
+
     public PlayerModel()
     {
         _bonusCollection = new Dictionary<Bonus, int>();
@@ -16,10 +18,10 @@ public class PlayerModel
 
     public void CollectBonus(Bonus bonus)
     {
-        if(_bonusCollection.ContainsKey(bonus))
-            _bonusCollection[bonus]++;
+        if(BonusCollection.ContainsKey(bonus))
+            BonusCollection[bonus]++;
         else
-            _bonusCollection.Add(bonus, 1);
+            BonusCollection.Add(bonus, 1);
         OnBonusCollect?.Invoke(bonus);
 
     }

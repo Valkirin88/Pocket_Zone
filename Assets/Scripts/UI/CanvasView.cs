@@ -7,24 +7,24 @@ public class CanvasView : MonoBehaviour
     [SerializeField]
     private Button _shootButton;
     [SerializeField]
-    private GameObject _inventoryObject;
+    private Button _inventoryButton;
 
     public Action OnShoot;
+    public Action OnInventory;
 
     private void Start()
     {
         _shootButton.onClick.AddListener(Shoot);
+        _inventoryButton.onClick.AddListener(ShowInventory);
     }
 
     private void Shoot()
     {
         OnShoot?.Invoke();
     }
-
-    public void AddBonus(GameObject bonusObject)
+    private void ShowInventory()
     {
-
-        Instantiate(bonusObject, _inventoryObject.transform);
-      
+        OnInventory?.Invoke();
     }
+
 }

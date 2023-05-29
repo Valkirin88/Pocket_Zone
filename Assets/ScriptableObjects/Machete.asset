@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemName: Machete
   _item: {fileID: 2883440568375382656, guid: fa539e65e8554ba479804817cb9ab1ba, type: 3}
+  _image: {fileID: 1772108440760230418, guid: b071b51d5d9e27945835b2fc1e40fc49, type: 3}
