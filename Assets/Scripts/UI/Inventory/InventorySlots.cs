@@ -4,7 +4,7 @@ using TMPro;
 
 public class InventorySlots : MonoBehaviour
 {
-    public Sprite Image;
+    public Image Image;
 
     public Button SlotButton;
 
@@ -14,7 +14,7 @@ public class InventorySlots : MonoBehaviour
 
     public GameObject QuantityPanel;
 
-    public bool IsEmpty = true;
+    public bool IsEmpty;
 
     public Bonus Bonus;
 
@@ -23,6 +23,8 @@ public class InventorySlots : MonoBehaviour
     private void Start()
     {
         SlotButton.enabled = false;
+        IsEmpty = true;
+     
     }
 
     public void AddItem(Bonus bonus, int quantity)
@@ -31,7 +33,8 @@ public class InventorySlots : MonoBehaviour
         _quantity = quantity;
         QuantityText.text = _quantity.ToString();
         IsEmpty = false;
-        Image = bonus.BonusData.Image;
+        Image.sprite = bonus.BonusData.Image;
+        Image.preserveAspect = true;
         SlotButton.enabled = true;
     }
 
@@ -39,7 +42,4 @@ public class InventorySlots : MonoBehaviour
     {
         _quantity = quantity;
     }
-
-
-
 }

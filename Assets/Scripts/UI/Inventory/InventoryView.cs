@@ -17,8 +17,14 @@ public class InventoryView : MonoBehaviour
     public void ShowHideInventory()
     {
         if (_isInventoryActive)
-            _inventoryCanvas.enabled = true;
-        else 
+        {
             _inventoryCanvas.enabled = false;
+            _isInventoryActive = false;
+        }
+        else
+        {
+            _inventoryCanvas.enabled = true;
+            _isInventoryActive = true;
+        }
     }
 }

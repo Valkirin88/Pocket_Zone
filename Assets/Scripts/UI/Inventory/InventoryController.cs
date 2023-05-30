@@ -21,28 +21,31 @@ public class InventoryController
 
     private void AddItem(Bonus bonus)
     {
-
-        for (int i = 1; i <= _inventoryView.InventorySlots.Length; i++)
+        
+        isPresent = false;
+        for (int i = 0; i < _inventoryView.InventorySlots.Length; i++)
         {
-            if (bonus.BonusData.Item == _inventoryView.InventorySlots[i].Bonus.BonusData.Item)
+            
+            if (_inventoryView.InventorySlots[i].Bonus!=null && String.Equals(bonus.BonusData.Item, _inventoryView.InventorySlots[i].Bonus.BonusData.Item))
             {
                 int quantity = _bonusCollection[bonus];
                 _inventoryView.InventorySlots[i].AddSameItem(quantity);
                 isPresent = true;
+                UnityEngine.Debug.Log("same");
             }
             if (!isPresent)
             {
-                for (int j = 1; j <= _inventoryView.InventorySlots.Length; j++)
+                for (int j = 0; j < _inventoryView.InventorySlots.Length; j++)
                 {
                     if (_inventoryView.InventorySlots[i].IsEmpty)
                     {
                         int quantity = _bonusCollection[bonus];
                         _inventoryView.InventorySlots[i].AddItem(bonus, quantity);
+                        isPresent = true;
                     }
                 }
             }
         }
 
     }
-
 }

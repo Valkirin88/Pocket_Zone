@@ -144,13 +144,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sawed_off
+      name: guns_atlas_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 878
-        width: 783
-        height: 273
+        x: 27
+        y: 881
+        width: 779
+        height: 269
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72a118b7c5c56bcc0800000000000000
-      internalID: -3695664891932108249
+      spriteID: 03559ab29c6537941abee440c1dd52df
+      internalID: -879871896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: machete
+      name: guns_atlas_1
       rect:
         serializedVersion: 2
-        x: 874
+        x: 875
+        y: 420
+        width: 157
+        height: 721
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73d0be931c0492448a0a74b31240657a
+      internalID: -2100906109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: guns_atlas_2
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 478
+        width: 362
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dea79548308944fb4084e609bdbe8d
+      internalID: -1696288321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: guns_atlas_3
+      rect:
+        serializedVersion: 2
+        x: 548
         y: 417
-        width: 158
-        height: 724
+        width: 264
+        height: 449
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2122cf2ec3bc79810800000000000000
-      internalID: 1772108440760230418
+      spriteID: d4eeee37728ad3a4081697f64a109a6a
+      internalID: -396292262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: revolver
+      name: guns_atlas_4
       rect:
         serializedVersion: 2
-        x: 96
-        y: 475
-        width: 369
-        height: 351
+        x: 12
+        y: 13
+        width: 1349
+        height: 379
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,50 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b3475680d4bc9cb0800000000000000
-      internalID: -4855807490512174151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: axe
-      rect:
-        serializedVersion: 2
-        x: 547
-        y: 417
-        width: 265
-        height: 452
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de976b3845d5b1350800000000000000
-      internalID: 5988482747087616493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sniper_rifle
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 4
-        width: 1355
-        height: 388
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f656497a780910820800000000000000
-      internalID: 2882744148800333167
+      spriteID: 0f9cc35b65b119b469d2246767283a32
+      internalID: 1757109294
       vertices: []
       indices: 
       edges: []
@@ -259,11 +259,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      axe: 5988482747087616493
-      machete: 1772108440760230418
-      revolver: -4855807490512174151
-      sawed_off: -3695664891932108249
-      sniper_rifle: 2882744148800333167
+      guns_atlas_0: -879871896
+      guns_atlas_1: -2100906109
+      guns_atlas_2: -1696288321
+      guns_atlas_3: -396292262
+      guns_atlas_4: 1757109294
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
