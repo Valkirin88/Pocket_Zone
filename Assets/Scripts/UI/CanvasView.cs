@@ -9,8 +9,8 @@ public class CanvasView : MonoBehaviour
     [SerializeField]
     private Button _inventoryButton;
 
-    public Action OnShoot;
-    public Action OnInventory;
+    public event Action OnShootClicked;
+    public event Action OnInventoryClicked;
 
     private void Start()
     {
@@ -18,13 +18,18 @@ public class CanvasView : MonoBehaviour
         _inventoryButton.onClick.AddListener(ShowInventory);
     }
 
+    private void OnDestroy()
+    {
+        _shootButton.onClick.RemoveListener(Shoot);
+        _inventoryButton.onClick.RemoveListener(ShowInventory);
+    }
+
     private void Shoot()
     {
-        OnShoot?.Invoke();
+        OnShootClicked?.Invoke();
     }
     private void ShowInventory()
     {
-        OnInventory?.Invoke();
+        OnInventoryClicked?.Invoke();
     }
-
 }

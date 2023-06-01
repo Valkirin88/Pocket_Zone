@@ -24,7 +24,6 @@ public class InventorySlots : MonoBehaviour
     {
         SlotButton.enabled = false;
         IsEmpty = true;
-     
     }
 
     public void AddItem(Bonus bonus, int quantity)

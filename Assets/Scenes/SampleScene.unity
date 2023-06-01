@@ -2493,11 +2493,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7736218635222212689, guid: 13cf99add4394da4cab2fc1ec03ce7d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.99
+      value: 4.06
       objectReference: {fileID: 0}
     - target: {fileID: 7736218635222212689, guid: 13cf99add4394da4cab2fc1ec03ce7d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1454
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 7736218635222212689, guid: 13cf99add4394da4cab2fc1ec03ce7d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3291,7 +3291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gunTransform: {fileID: 2005598527}
-  _bullet: {fileID: 2538475801222946957, guid: 3a9c1cbd8971ecf4ba9a9745296e2873, type: 3}
+  _bulletPrefab: {fileID: 2538475801222946957, guid: 3a9c1cbd8971ecf4ba9a9745296e2873, type: 3}
   _speed: 3
 --- !u!70 &948382057
 CapsuleCollider2D:

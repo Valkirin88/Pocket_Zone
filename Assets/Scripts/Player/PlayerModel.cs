@@ -1,15 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class PlayerModel 
 {
-    public Action<Bonus> OnBonusCollect;
+    public event Action<Bonus> OnBonusCollected;
 
-    private Dictionary<Bonus, int> _bonusCollection;
+    private int _maxBonusNumber = 4;
 
-    public Dictionary<Bonus, int> BonusCollection => _bonusCollection; 
+    private readonly Dictionary<Bonus, int> _bonusCollection;
+
+    public IReadOnlyDictionary<Bonus, int> BonusCollection => _bonusCollection;
+
+    public int MaxBonusNumber  => _maxBonusNumber; 
 
     public PlayerModel()
     {
@@ -19,10 +21,10 @@ public class PlayerModel
     public void CollectBonus(Bonus bonus)
     {
         if(BonusCollection.ContainsKey(bonus))
-            BonusCollection[bonus]++;
+            _bonusCollection[bonus]++;
         else
-            BonusCollection.Add(bonus, 1);
-        OnBonusCollect?.Invoke(bonus);
+            _bonusCollection.Add(bonus, 1);
+        OnBonusCollected?.Invoke(bonus);
 
     }
 }

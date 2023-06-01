@@ -7,12 +7,12 @@ public class PlayerView : MonoBehaviour
     private Transform _gunTransform;
 
     [SerializeField]
-    private GameObject _bullet;
+    private GameObject _bulletPrefab;
 
     [SerializeField]
     private float _speed = 3f;
 
-    public Action<Bonus> OnBonusCollect;
+    public event Action<Bonus, Collider2D> OnBonusCollided;
 
     private Vector2 _direction;
     private bool _isMoving;
@@ -23,9 +23,13 @@ public class PlayerView : MonoBehaviour
         Bonus bonus = collision.GetComponent<Bonus>();
         if (bonus != null)
         {
-            OnBonusCollect?.Invoke(bonus);
-            Destroy(collision.gameObject);
+            OnBonusCollided?.Invoke(bonus, collision);
         }
+    }
+    private void Update()
+    {
+        if (_isMoving)
+            transform.position = transform.position + new Vector3(_direction.x, _direction.y) * Time.deltaTime * _speed;
     }
 
     public void SetDirection(Vector2 vector2)
@@ -37,21 +41,10 @@ public class PlayerView : MonoBehaviour
     {
         _isMoving = isMoving;
     }
-
-    public void Move()
-    {
-        if(_isMoving)
-            transform.position = transform.position + new Vector3(_direction.x, _direction.y) * Time.deltaTime * _speed;
-    }
-
-    public void Flip()
-    {
-        transform.localScale = new Vector3(-1 *transform.localScale.x, transform.localScale.y, transform.localScale.z);
-    }
-
+    
     public void Shoot()
     {
-        Instantiate(_bullet, _gunTransform.position, Quaternion.identity);
-        _bullet.GetComponent<Bullet>().Direction = _direction;
+        var bullet = Instantiate(_bulletPrefab, _gunTransform.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>().Direction = _direction;
     }
 }

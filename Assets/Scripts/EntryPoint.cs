@@ -24,11 +24,6 @@ public class EntryPoint : MonoBehaviour
         _inventoryController = new InventoryController(_inventoryView, _playerModel, _canvasView);
     }
 
-    private void Update()
-    {
-        _playerController.Update();
-    }
-
     private void OnDestroy()
     {
         _playerController.Dispose();

@@ -4,15 +4,17 @@ using UnityEngine;
 public class BonusData : ScriptableObject
 {
     [SerializeField]
-    private string _itemName;
+    private string _itemID;
 
     [SerializeField]
-    private GameObject _item;
+    private GameObject _itemPrefab;
 
     [SerializeField]
     private Sprite _image;
 
-    public GameObject Item => _item;
+    public GameObject ItemPrefab => _itemPrefab;
 
-    public Sprite Image  => _image; 
+    public Sprite Image  => _image;
+
+    public string ItemID  => _itemID; 
 }

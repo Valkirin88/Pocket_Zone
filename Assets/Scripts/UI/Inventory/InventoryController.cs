@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class InventoryController
 {
-    private InventoryView _inventoryView;
-    private PlayerModel _playerModel;
-    private bool isPresent;
-    private Dictionary<Bonus, int> _bonusCollection;
-    private CanvasView _canvasView;
+    private readonly InventoryView _inventoryView;
+    private readonly PlayerModel _playerModel;
+    private readonly IReadOnlyDictionary<Bonus, int> _bonusCollection;
+    private readonly CanvasView _canvasView;
+    private bool _isPresent;
 
     public InventoryController(InventoryView view, PlayerModel playerModel, CanvasView canvasView)
     {
@@ -15,37 +15,61 @@ public class InventoryController
         _playerModel = playerModel;
         _canvasView = canvasView;
         _bonusCollection = _playerModel.BonusCollection;
-        _playerModel.OnBonusCollect += AddItem;
-        _canvasView.OnInventory += _inventoryView.ShowHideInventory;
+
+        _playerModel.OnBonusCollected += AddItem;
+        _canvasView.OnInventoryClicked += _inventoryView.ShowHideInventory;
     }
 
     private void AddItem(Bonus bonus)
     {
-        
-        isPresent = false;
+        _isPresent = false;
         for (int i = 0; i < _inventoryView.InventorySlots.Length; i++)
         {
-            
-            if (_inventoryView.InventorySlots[i].Bonus!=null && String.Equals(bonus.BonusData.Item, _inventoryView.InventorySlots[i].Bonus.BonusData.Item))
+            if (_inventoryView.InventorySlots[i] == null && !_isPresent)
+            {
+                int quantity = _bonusCollection[bonus];
+                _inventoryView.InventorySlots[i].AddItem(bonus, quantity);
+                _isPresent = true;
+                UnityEngine.Debug.Log("new");
+            }
+ if(_inventoryView.InventorySlots[i] != null && bonus.BonusData == _inventoryView.InventorySlots[i].Bonus.BonusData && !_isPresent)
             {
                 int quantity = _bonusCollection[bonus];
                 _inventoryView.InventorySlots[i].AddSameItem(quantity);
-                isPresent = true;
-                UnityEngine.Debug.Log("same");
+                _isPresent = true;
             }
-            if (!isPresent)
-            {
-                for (int j = 0; j < _inventoryView.InventorySlots.Length; j++)
-                {
-                    if (_inventoryView.InventorySlots[i].IsEmpty)
-                    {
-                        int quantity = _bonusCollection[bonus];
-                        _inventoryView.InventorySlots[i].AddItem(bonus, quantity);
-                        isPresent = true;
-                    }
-                }
-            }
+
         }
 
+
+
+        //_isPresent = false;
+
+        //for (int i = 0; i < _inventoryView.InventorySlots.Length; i++)
+        //{
+        //   UnityEngine.Debug.Log(i);
+        //    if (_inventoryView.InventorySlots[i].Bonus!=null)
+        //    {
+        //        if (bonus.BonusData == _inventoryView.InventorySlots[i].Bonus.BonusData)
+        //        {
+        //            int quantity = _bonusCollection[bonus];
+        //            _inventoryView.InventorySlots[i].AddSameItem(quantity);
+        //            _isPresent = true;
+        //            UnityEngine.Debug.Log("same");
+        //        }
+
+        //    }
+        //    if (!_isPresent)
+        //    {
+
+        //            if (_inventoryView.InventorySlots[i].IsEmpty && !_isPresent)
+        //            {
+        //                int quantity = _bonusCollection[bonus];
+        //                _inventoryView.InventorySlots[i].AddItem(bonus, quantity);
+        //                _isPresent = true;
+        //                UnityEngine.Debug.Log("new");
+        //            }
+        //    }
+        //}
     }
 }
