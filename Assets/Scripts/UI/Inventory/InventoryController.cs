@@ -25,51 +25,18 @@ public class InventoryController
         _isPresent = false;
         for (int i = 0; i < _inventoryView.InventorySlots.Length; i++)
         {
-            if (_inventoryView.InventorySlots[i] == null && !_isPresent)
+            if (_inventoryView.InventorySlots[i].IsEmpty && !_isPresent)
             {
                 int quantity = _bonusCollection[bonus];
                 _inventoryView.InventorySlots[i].AddItem(bonus, quantity);
                 _isPresent = true;
-                UnityEngine.Debug.Log("new");
             }
- if(_inventoryView.InventorySlots[i] != null && bonus.BonusData == _inventoryView.InventorySlots[i].Bonus.BonusData && !_isPresent)
+            if(!_inventoryView.InventorySlots[i].IsEmpty && String.Equals(bonus.BonusData.ItemID, _inventoryView.InventorySlots[i].Bonus.BonusData.ItemID) && !_isPresent)
             {
                 int quantity = _bonusCollection[bonus];
                 _inventoryView.InventorySlots[i].AddSameItem(quantity);
                 _isPresent = true;
             }
-
         }
-
-
-
-        //_isPresent = false;
-
-        //for (int i = 0; i < _inventoryView.InventorySlots.Length; i++)
-        //{
-        //   UnityEngine.Debug.Log(i);
-        //    if (_inventoryView.InventorySlots[i].Bonus!=null)
-        //    {
-        //        if (bonus.BonusData == _inventoryView.InventorySlots[i].Bonus.BonusData)
-        //        {
-        //            int quantity = _bonusCollection[bonus];
-        //            _inventoryView.InventorySlots[i].AddSameItem(quantity);
-        //            _isPresent = true;
-        //            UnityEngine.Debug.Log("same");
-        //        }
-
-        //    }
-        //    if (!_isPresent)
-        //    {
-
-        //            if (_inventoryView.InventorySlots[i].IsEmpty && !_isPresent)
-        //            {
-        //                int quantity = _bonusCollection[bonus];
-        //                _inventoryView.InventorySlots[i].AddItem(bonus, quantity);
-        //                _isPresent = true;
-        //                UnityEngine.Debug.Log("new");
-        //            }
-        //    }
-        //}
     }
 }

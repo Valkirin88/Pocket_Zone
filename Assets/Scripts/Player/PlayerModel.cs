@@ -26,5 +26,7 @@ public class PlayerModel
             _bonusCollection.Add(bonus, 1);
         OnBonusCollected?.Invoke(bonus);
 
+        UnityEngine.Debug.Log(_bonusCollection[bonus]);
+
     }
 }
