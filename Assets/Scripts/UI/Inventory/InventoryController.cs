@@ -5,7 +5,7 @@ public class InventoryController
 {
     private readonly InventoryView _inventoryView;
     private readonly PlayerModel _playerModel;
-    private readonly IReadOnlyDictionary<Bonus, int> _bonusCollection;
+    private readonly IReadOnlyDictionary<string, int> _bonusCollection;
     private readonly CanvasView _canvasView;
     private bool _isPresent;
 
@@ -27,13 +27,13 @@ public class InventoryController
         {
             if (_inventoryView.InventorySlots[i].IsEmpty && !_isPresent)
             {
-                int quantity = _bonusCollection[bonus];
+                int quantity = _bonusCollection[bonus.BonusData.ItemID];
                 _inventoryView.InventorySlots[i].AddItem(bonus, quantity);
                 _isPresent = true;
             }
             if(!_inventoryView.InventorySlots[i].IsEmpty && String.Equals(bonus.BonusData.ItemID, _inventoryView.InventorySlots[i].Bonus.BonusData.ItemID) && !_isPresent)
             {
-                int quantity = _bonusCollection[bonus];
+                int quantity = _bonusCollection[bonus.BonusData.ItemID];
                 _inventoryView.InventorySlots[i].AddSameItem(quantity);
                 _isPresent = true;
             }
